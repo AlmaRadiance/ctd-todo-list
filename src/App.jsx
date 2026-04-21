@@ -1,15 +1,21 @@
+import {useState} from 'react';
+import TodoForm from './TodoForm.jsx';
+import TodoList from './TodoList.jsx';
 import './App.css'
 
-function App() {
-  const todoList = [
+ const todos = [
     {id:1, title:"review resources" },
     {id:2, title:"take notes"},
     {id:3, title:"code out app"},
-  ]
+  ] 
+
+function App() {
+ const [todoList, setTodoList] = useState(todos);
   return (
     <div>
       <h1>Todo List</h1>
-      <ul>{todoList.map(todo => <li key={todo.id}>{todo.title}</li>)}</ul>
+      <TodoForm/>
+      <TodoList todoList={todoList} />
     </div>
   );
 }
