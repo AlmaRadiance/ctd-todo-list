@@ -23,17 +23,7 @@ const [workingTodoTitle, setWorkingTodoTitle] = useState('');
 
   return (
     <form onSubmit={handleAddTodo}>
-         {/* <label htmlFor="todoTitle">Todo</label>
-      <input
-      ref={inputRef}
-      type="text"
-      id="todoTitle"
-      name="todoTitle"
-      placeholder={'Todo text'}
-      required
-      value={workingTodoTitle}
-      onChange={(event)=>setWorkingTodoTitle(event.target.value)}
-    /> */}
+        
     <TextInputWithLabel
       ref={inputRef}
       value={workingTodoTitle}
@@ -41,9 +31,7 @@ const [workingTodoTitle, setWorkingTodoTitle] = useState('');
       elementId="todoTitle"
       labelText="Todo"
     />
-{/* <button type="submit" disabled={!workingTodoTitle.trim()}>
-      Add Todo
-    </button> */}
+
     <button disabled = {!isValidTodoTitle(workingTodoTitle)}>Add Todo</button>
     </form>
   );
