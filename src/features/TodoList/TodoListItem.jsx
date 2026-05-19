@@ -30,7 +30,7 @@ const handleUpdate = (event) => {
             <>
                 <TextInputWithLabel 
                 value={workingTitle}
-                // value={todo.title}
+              
                 onChange={handleEdit}
                 elementId = {`editTodo${todo.id}`}
                 labelText="Edit Todo"
