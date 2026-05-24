@@ -52,6 +52,10 @@ function TodosPage({token}) {
         credentials: 'include',
         body:JSON.stringify({title:todoTitle, isCompleted: false}),
     });
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}));
+      throw new Error(errorData.message || 'Failed to add todo');
+    }
     const data = await response.json();
     setTodoList(previous => 
         previous.map(todo => (todo.id === newTodo.id ? data: todo))
