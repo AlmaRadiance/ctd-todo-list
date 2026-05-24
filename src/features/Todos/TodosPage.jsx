@@ -86,6 +86,7 @@ function TodosPage({token}) {
     credentials: 'include',
     body: JSON.stringify({
       isCompleted: true,
+      createdAt: originalTodo.createdAt,
     }),
   });
  
@@ -117,6 +118,7 @@ async function updateTodo(editedTodo) {
         body: JSON.stringify({
             title: editedTodo.title,
             isCompleted: editedTodo.isCompleted,
+            createdAt: originalTodo.createdAt,
         }),
     });
   } catch (error) {
