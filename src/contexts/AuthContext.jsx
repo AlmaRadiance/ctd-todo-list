@@ -50,7 +50,7 @@ export function AuthProvider({ children }) {
     if(!token) {
         setEmail('');
         setToken('');
-        return;
+        return {success: true};
     }
     try {
         await fetch('/api/users/logoff',{
@@ -61,8 +61,13 @@ export function AuthProvider({ children }) {
             },
             credentials: 'include',
         });
+        return {success: true};
     } catch (error) {
         console.error('Logout error:', error);
+        return {
+          success: false,
+          error: 'Logout failed',
+        }
     } finally {
         setEmail('');
         setToken('');

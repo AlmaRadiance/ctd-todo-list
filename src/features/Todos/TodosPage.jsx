@@ -15,7 +15,6 @@ const {todoList, error, filterError, isTodoListLoading, sortBy, sortDirection, f
 const debouncedFilterTerm = useDebounce(filterTerm, 300);
 
 const invalidateCache = useCallback(() => {
- 
 }, []);
 
  const handleFilterChange = (newTerm) => {
