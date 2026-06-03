@@ -11,7 +11,7 @@ function Logon () {
     const handleSubmit = async (event) => {
         event.preventDefault();
         setIsLoggingOn(true);
-
+        setAuthError('');
         const result = await login(email, password);
         if (!result.success) {
             setAuthError(result.error);
