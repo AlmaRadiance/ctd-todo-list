@@ -26,9 +26,11 @@ useEffect(() => {
             if(!response.ok) {
                 throw new Error('Failed to fetch todos');
             }
-            const todos = await response.json();
-            const total = todos.tasks.length;
-            const completed = todos.tasks.filter((todo) => todo.isCompleted).length;
+           
+            const data = await response.json();
+             const total = data.tasks.length;
+            const completed = data.tasks.filter((todo) => todo.isCompleted).length;
+
             const active = total - completed;
             setTodoStats({total, completed, active});
         } catch (err) {
